@@ -15,7 +15,9 @@ namespace Runtime.Player {
             }
         }
         void Update() {
-            attachedAvatar.intendsToJump = Gamepad.current.aButton.isPressed;
+            if (Gamepad.current.aButton.wasPressedThisFrame) {
+                attachedAvatar.Jump();
+            }
             attachedAvatar.movementInput = Gamepad.current.leftStick.ReadValue();
         }
     }

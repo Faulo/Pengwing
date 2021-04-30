@@ -1,7 +1,6 @@
 using UnityEngine;
 
 namespace Runtime.Player {
-
     public class AvatarController : MonoBehaviour {
         enum Parameters {
             isInWater,
@@ -19,7 +18,6 @@ namespace Runtime.Player {
         LayerMask waterLayer = default;
 
         [Header("Debug")]
-        public bool intendsToJump;
         public Vector2 movementInput;
         public Vector2 velocity;
         public bool isInWater;
@@ -39,7 +37,6 @@ namespace Runtime.Player {
             isInWater = Physics.CheckSphere(transform.position, attachedCharacter.radius, waterLayer);
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
-            attachedAnimator.SetBool(nameof(Parameters.intendsToJump), intendsToJump);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
 
             attachedCharacter.Move(velocity * Time.deltaTime);
@@ -54,6 +51,9 @@ namespace Runtime.Player {
         void OnTriggerStay(Collider other) {
         }
         void OnTriggerExit(Collider other) {
+        }
+        public void Jump() {
+            attachedAnimator.SetTrigger(nameof(Parameters.intendsToJump));
         }
     }
 }

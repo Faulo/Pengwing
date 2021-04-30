@@ -9,6 +9,10 @@ namespace Runtime.Player {
         Vector2 initialVelocity = Vector2.zero;
         [SerializeField, Range(0, 100)]
         float speed = 10;
+        [SerializeField, Range(0, 100)]
+        float duration = 0;
+
+        Vector2 acceleration;
 
         public override void EnterMovement(AvatarController avatar) {
             if (resetVelocity) {
@@ -16,7 +20,9 @@ namespace Runtime.Player {
             }
         }
         public override void UpdateMovement(AvatarController avatar) {
-            avatar.velocity.x = (avatar.movementInput * speed).x;
+            var targetVelocity = avatar.movementInput * speed;
+            targetVelocity.y = avatar.velocity.y;
+            avatar.velocity = Vector2.SmoothDamp(avatar.velocity, targetVelocity, ref acceleration, duration);
         }
     }
 }
