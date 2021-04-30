@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4375781673258034691}
   - component: {fileID: 7886186199483542926}
   - component: {fileID: 5745124253976999427}
+  - component: {fileID: 3006179625971808098}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -65,11 +66,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedCharacter: {fileID: 4375781673258034691}
-  movementSpeed: 10
-  jumpSpeed: 10
-  waterBreakDuration: 1
+  attachedAnimator: {fileID: 3006179625971808098}
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
   intendsToJump: 0
   movementInput: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
+  isInWater: 0
 --- !u!114 &5745124253976999427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +87,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedAvatar: {fileID: 7886186199483542926}
+--- !u!95 &3006179625971808098
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232548515289332830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e82a77e3e2d8f1440810dba86706eb58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2374508060739666795
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Runtime {
+namespace Runtime.Player {
     public class AvatarInput : MonoBehaviour {
         [SerializeField]
         AvatarController attachedAvatar = default;
