@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a411d51441d68c4f88e1619f47316a1, type: 3}
+  m_Name: Wasser
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 6013603473020225909, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 3380022736118974401, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -5603935570889906609, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -5076694928474400086, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 1894928417265919209, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 9084837347121337386, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 1030841842418581977, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -8819548701040661969, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 5562348606463406272, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -311068026241171801, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -5269225063255185251, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -6595936128040008541, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -4954977874458340284, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: -1853568582911922178, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 1627369109808195157, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  - {fileID: 5950552022098559026, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
+  tileOptions: 3
+  colliderType: 0
+  spriteSheet: {fileID: 2800000, guid: 9a97511ece55e7b4597ad41eecc19562, type: 3}
