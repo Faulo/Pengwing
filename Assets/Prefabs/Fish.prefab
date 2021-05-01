@@ -152,12 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc689ccd317ed54419a47c7db3166ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteList:
-  - {fileID: 191482919275483900, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
-  - {fileID: 1004214499475140684, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
-  - {fileID: -9078447896281826319, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
+  sprites:
   - {fileID: 21987596198201731, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
-  rend: {fileID: 6395498101923145217}
+  - {fileID: -9078447896281826319, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
+  - {fileID: 1004214499475140684, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
+  - {fileID: 191482919275483900, guid: cba9ec7213cb4da4bad5b3817fcd9f1d, type: 3}
+  attachedRenderer: {fileID: 6395498101923145217}
 --- !u!114 &6395498102855654190
 MonoBehaviour:
   m_ObjectHideFlags: 0
