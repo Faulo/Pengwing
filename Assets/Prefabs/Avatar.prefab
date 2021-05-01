@@ -71,10 +71,14 @@ MonoBehaviour:
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
+  spotlightLayer:
+    serializedVersion: 2
+    m_Bits: 512
   movementInput: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isInWater: 0
   isFacingLeft: 0
+  canFly: 1
 --- !u!114 &5745124253976999427
 MonoBehaviour:
   m_ObjectHideFlags: 0
