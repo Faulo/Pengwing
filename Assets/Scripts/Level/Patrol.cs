@@ -47,8 +47,7 @@ namespace Runtime.Level {
 
                     if (pickWaypointsRandom) {
                         currentWaypointIndex = Random.Range(0, waypoints.Length);
-                    } 
-                    else {
+                    } else {
                         if (currentWaypointIndex < waypoints.Length - 1) {
 
                             currentWaypointIndex++;
