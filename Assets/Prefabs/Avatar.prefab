@@ -70,7 +70,7 @@ MonoBehaviour:
   attachedRenderer: {fileID: 6888382834102438131}
   waterLayer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 1040
   spotlightLayer:
     serializedVersion: 2
     m_Bits: 512

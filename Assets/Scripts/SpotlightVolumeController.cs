@@ -28,10 +28,10 @@ namespace Runtime {
             avatar = FindObjectOfType<AvatarController>();
         }
         void Update() {
-            if (avatar.canFly) {
-                timer -= Time.deltaTime / maximumDuration;
-            } else {
+            if (avatar.isSeen) {
                 timer += Time.deltaTime / maximumDuration;
+            } else {
+                timer -= Time.deltaTime / maximumDuration;
             }
             timer = Mathf.Clamp01(timer);
             attachedVolume.weight = maximumWeight * timer;
