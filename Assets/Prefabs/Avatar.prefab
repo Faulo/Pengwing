@@ -355,6 +355,6 @@ MonoBehaviour:
   swampLayer:
     serializedVersion: 2
     m_Bits: 1024
-  swampRadius: 0.25
+  swampRadius: 0.4
   crocPrefab: {fileID: 5663918583417786354, guid: dc061c5c6f10d604ab9248a5247bd5f6, type: 3}
   crocDuration: 0.75
