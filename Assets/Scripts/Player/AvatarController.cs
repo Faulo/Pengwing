@@ -7,6 +7,7 @@ namespace Runtime.Player {
             intendsToJump,
             isGrounded,
             walkSpeed,
+            movementSpeed,
         }
         [Header("MonoBehaviour")]
         [SerializeField]
@@ -49,6 +50,7 @@ namespace Runtime.Player {
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
             attachedAnimator.SetFloat(nameof(Parameters.walkSpeed), Mathf.Abs(velocity.x));
+            attachedAnimator.SetFloat(nameof(Parameters.movementSpeed), velocity.magnitude);
             attachedRenderer.flipX = isFacingLeft;
 
             attachedCharacter.Move(velocity * Time.deltaTime);
