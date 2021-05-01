@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a8e6bccea019f4dab1412fe3947bd3, type: 3}
-  m_Name: Avatar_Walk_Airborne
+  m_Script: {fileID: 11500000, guid: 3514d419187abbb4ea3b6aaf7a05d94b, type: 3}
+  m_Name: Avatar_Gravity_Falling
   m_EditorClassIdentifier: 
-  resetVelocity: 0
-  initialVelocity: {x: 0, y: 0}
-  inputDeadZone: 0.1
-  speed: 8
-  duration: 1
+  multiplier: 1.25

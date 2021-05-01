@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fb79c30e619c04a8188c2b4c5cb0be, type: 3}
-  m_Name: Avatar_Drag_Airborne
+  m_Script: {fileID: 11500000, guid: 76a8e6bccea019f4dab1412fe3947bd3, type: 3}
+  m_Name: Avatar_Walk_Gliding
   m_EditorClassIdentifier: 
-  targetVelocity: {x: 5, y: 0}
+  resetVelocity: 0
+  initialVelocity: {x: 0, y: 0}
+  inputDeadZone: 0.1
+  speed: 8
   duration: 1

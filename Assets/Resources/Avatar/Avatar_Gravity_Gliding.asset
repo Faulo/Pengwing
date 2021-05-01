@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fb79c30e619c04a8188c2b4c5cb0be, type: 3}
-  m_Name: Avatar_Drag_Flying
+  m_Script: {fileID: 11500000, guid: 3514d419187abbb4ea3b6aaf7a05d94b, type: 3}
+  m_Name: Avatar_Gravity_Gliding
   m_EditorClassIdentifier: 
-  targetVelocity: {x: 0, y: 6}
-  duration: 0.5
+  multiplier: 0.75
