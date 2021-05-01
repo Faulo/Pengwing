@@ -69,19 +69,21 @@ MonoBehaviour:
   attachedCharacter: {fileID: 4375781673258034691}
   attachedAnimator: {fileID: 3006179625971808098}
   attachedRenderer: {fileID: 6888382834102438131}
+  manualUpdate: 1
   spotlightLayer:
     serializedVersion: 2
     m_Bits: 512
   waterLayer:
     serializedVersion: 2
-    m_Bits: 1040
-  waterOffset: {x: 0, y: 0.5, z: 0}
-  waterRadius: 1
+    m_Bits: 16
+  waterOffset: {x: 0, y: 0.25, z: 0}
+  waterRadius: 0.25
   swampLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   swampOffset: {x: 0, y: 0, z: 0}
-  swampRadius: 1
+  swampRadius: 0.25
+  jumpBufferDuration: 0.3
   movementInput: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isInWater: 0

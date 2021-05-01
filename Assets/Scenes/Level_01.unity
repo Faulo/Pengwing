@@ -31980,29 +31980,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: swampRadius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: waterRadius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: swampOffset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: waterOffset.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: swampLayer.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886186199483542926, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
-      propertyPath: waterLayer.m_Bits
-      value: 16
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509d10dcb0a564744a2be4a05e9969d2, type: 3}
