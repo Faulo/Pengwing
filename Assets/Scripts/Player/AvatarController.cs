@@ -10,6 +10,7 @@ namespace Runtime.Player {
             walkSpeed,
             movementSpeed,
             canFly,
+            isWin,
         }
         public static AvatarController instance;
         [Header("MonoBehaviour")]
@@ -25,6 +26,8 @@ namespace Runtime.Player {
         bool manualUpdate = false;
         [SerializeField]
         LayerMask spotlightLayer = default;
+        [SerializeField]
+        LayerMask goalLayer = default;
         [SerializeField]
         LayerMask waterLayer = default;
         [SerializeField]
@@ -51,6 +54,7 @@ namespace Runtime.Player {
         public bool isFacingLeft;
         public bool isSeen;
         public bool canFly;
+        public bool isWin;
         public float facingMultiplier => isFacingLeft
             ? -1
             : 1;
@@ -81,6 +85,11 @@ namespace Runtime.Player {
             if (isInSwamp) {
                 isAlive = false;
             }
+            var goal = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, goalLayer);
+            if (goal && goal.TryGetComponent<GoalController>(out var g) && !isWin) {
+                isWin = true;
+                g.Win();
+            }
             canFly = isAlive && !isSeen;
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
@@ -89,6 +98,7 @@ namespace Runtime.Player {
             attachedAnimator.SetBool(nameof(Parameters.canFly), canFly);
             attachedAnimator.SetFloat(nameof(Parameters.walkSpeed), Mathf.Abs(velocity.x));
             attachedAnimator.SetFloat(nameof(Parameters.movementSpeed), velocity.magnitude);
+            attachedAnimator.SetBool(nameof(Parameters.isWin), isWin);
 
             attachedAnimator.enabled = !manualUpdate;
             if (manualUpdate) {

@@ -73,6 +73,9 @@ MonoBehaviour:
   spotlightLayer:
     serializedVersion: 2
     m_Bits: 512
+  goalLayer:
+    serializedVersion: 2
+    m_Bits: 1
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
@@ -92,6 +95,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isSeen: 0
   canFly: 1
+  isWin: 0
 --- !u!114 &5745124253976999427
 MonoBehaviour:
   m_ObjectHideFlags: 0
