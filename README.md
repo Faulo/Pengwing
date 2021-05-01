@@ -8,6 +8,6 @@ Spring Game Jam 2021:
 - Theme: "Doppelleben" ("double lives")
 
 ## Credits
-- Elisabeth Harzbecker  (art, level design)
 - Nico Auerswald (art, programming)
+- Elisabeth Harzbecker  (art, level design)
 - Daniel Schulz (programming)
