@@ -14,7 +14,7 @@ namespace Runtime.Player {
             acceleration = Vector2.zero;
         }
         public override void UpdateMovement(AvatarController avatar) {
-            avatar.velocity = Vector2.SmoothDamp(avatar.velocity, targetVelocity, ref acceleration, duration);
+            avatar.velocity = Vector2.SmoothDamp(avatar.velocity, new Vector2(avatar.facingMultiplier * targetVelocity.x, targetVelocity.y), ref acceleration, duration);
         }
     }
 }
