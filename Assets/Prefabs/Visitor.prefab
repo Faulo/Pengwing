@@ -240,6 +240,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 2
   reachDistance: 0.2
+  pickWaypointsRandom: 0
 --- !u!1001 &4881082803785932823
 PrefabInstance:
   m_ObjectHideFlags: 0
