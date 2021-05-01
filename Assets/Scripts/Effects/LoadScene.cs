@@ -7,5 +7,6 @@ namespace Runtime.Effects {
         public void Invoke(string sceneName) {
             SceneManager.LoadScene(sceneName);
         }
+        public void ReloadCurrentScene() => Invoke(SceneManager.GetActiveScene().name);
     }
 }
