@@ -33,6 +33,7 @@ namespace Runtime.Level {
             facingRight = true;
             currentWaypointIndex = 0;
             currentWaitTime = waitTime;
+            LookAtWaypoint();
         }
 
         void FixedUpdate() {
@@ -41,46 +42,38 @@ namespace Runtime.Level {
 
             // Distanz zum aktuellen Waypoint checken
             if (Vector2.Distance(attachedAnimator.transform.position, waypoints[currentWaypointIndex].position) < reachDistance) {
-
                 // Wenn genug gewartet wurde
-                if (currentWaitTime <= 0) {
-
+                if (currentWaitTime < 0) {
                     if (pickWaypointsRandom) {
                         currentWaypointIndex = Random.Range(0, waypoints.Length);
                     } else {
-                        if (currentWaypointIndex < waypoints.Length - 1) {
-
-                            currentWaypointIndex++;
-
-                        } else {
-                            currentWaypointIndex = 0;
-                        }
+                        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
                     }
 
                     currentWaitTime = waitTime;
                     attachedAnimator.SetBool("IsWaiting", false);
 
                     // Flipping the Gameobject
-
-                    // wenn der Waypoint rechts vom Visitor ist und er nach links schaut dann Flip
-                    if (attachedAnimator.transform.position.x < waypoints[currentWaypointIndex].position.x) {
-
-                        if (!facingRight) {
-                            Flip();
-                        }
-                    }
-                    // wenn der Waypoint links vom Visitor ist und er nach rechts schaut dann Flip 
-
-                    else {
-                        if (facingRight) {
-                            Flip();
-                        }
-                    }
+                    LookAtWaypoint();
 
                     // Wartezeit herunterzählen
                 } else {
                     currentWaitTime -= Time.deltaTime;
                     attachedAnimator.SetBool("IsWaiting", true);
+                }
+            }
+        }
+
+        void LookAtWaypoint() {
+            // wenn der Waypoint rechts vom Visitor ist und er nach links schaut dann Flip
+            if (attachedAnimator.transform.position.x < waypoints[currentWaypointIndex].position.x) {
+                if (!facingRight) {
+                    Flip();
+                }
+            } else {
+                // wenn der Waypoint links vom Visitor ist und er nach rechts schaut dann Flip 
+                if (facingRight) {
+                    Flip();
                 }
             }
         }
