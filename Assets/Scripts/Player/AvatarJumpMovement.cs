@@ -13,9 +13,14 @@ namespace Runtime.Player {
         Vector2 defaultVelocity = Vector2.one;
 
         public override void EnterMovement(AvatarController avatar) {
+            if (allowInput) {
+                if (Mathf.Abs(avatar.movementInput.x) > inputDeadZone) {
+                    avatar.isFacingLeft = Mathf.Sign(avatar.movementInput.x) < 0;
+                }
+            }
             var targetVelocity = allowInput && avatar.movementInput.magnitude > inputDeadZone
                 ? avatar.movementInput.normalized
-                : defaultVelocity;
+                : new Vector2(defaultVelocity.x * avatar.facingMultiplier, defaultVelocity.y);
             avatar.velocity += initialSpeed * targetVelocity;
         }
         public override void UpdateMovement(AvatarController avatar) {

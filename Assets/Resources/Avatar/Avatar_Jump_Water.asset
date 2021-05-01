@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8eea3059bde5254abd02502c1b19d76, type: 3}
   m_Name: Avatar_Jump_Water
   m_EditorClassIdentifier: 
-  initialSpeed: 5
+  initialSpeed: 3
   allowInput: 1
   inputDeadZone: 0.1
   defaultVelocity: {x: 1, y: 1}

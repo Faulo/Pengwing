@@ -12,6 +12,8 @@ namespace Runtime.Player {
         CharacterController attachedCharacter = default;
         [SerializeField]
         Animator attachedAnimator = default;
+        [SerializeField]
+        SpriteRenderer attachedRenderer = default;
 
         [Header("Physics")]
         [SerializeField]
@@ -21,6 +23,10 @@ namespace Runtime.Player {
         public Vector2 movementInput;
         public Vector2 velocity;
         public bool isInWater;
+        public bool isFacingLeft;
+        public float facingMultiplier => isFacingLeft
+            ? -1
+            : 1;
 
         void Awake() {
             OnValidate();
@@ -32,12 +38,16 @@ namespace Runtime.Player {
             if (!attachedAnimator) {
                 TryGetComponent(out attachedAnimator);
             }
+            if (!attachedRenderer) {
+                TryGetComponent(out attachedRenderer);
+            }
         }
         void FixedUpdate() {
             isInWater = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, waterLayer);
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
+            attachedRenderer.flipX = isFacingLeft;
 
             attachedCharacter.Move(velocity * Time.deltaTime);
             if (attachedCharacter.isGrounded) {

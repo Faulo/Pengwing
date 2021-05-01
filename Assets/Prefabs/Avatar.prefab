@@ -67,13 +67,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedCharacter: {fileID: 4375781673258034691}
   attachedAnimator: {fileID: 3006179625971808098}
+  attachedRenderer: {fileID: 6888382834102438131}
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
-  intendsToJump: 0
   movementInput: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isInWater: 0
+  isFacingLeft: 0
 --- !u!114 &5745124253976999427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24a39313224de4d48853b19bef6c3e85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

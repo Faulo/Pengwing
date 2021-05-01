@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3514d419187abbb4ea3b6aaf7a05d94b, type: 3}
   m_Name: Avatar_Gravity_Jump
   m_EditorClassIdentifier: 
-  multiplier: -0.25
+  multiplier: 1

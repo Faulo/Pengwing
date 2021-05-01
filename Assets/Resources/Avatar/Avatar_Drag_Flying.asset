@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fb79c30e619c04a8188c2b4c5cb0be, type: 3}
   m_Name: Avatar_Drag_Flying
   m_EditorClassIdentifier: 
-  targetVelocity: {x: 0, y: 0}
-  duration: 10
+  targetVelocity: {x: 0, y: 5}
+  duration: 0.5

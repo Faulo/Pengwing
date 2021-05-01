@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetVelocity: 0
   initialVelocity: {x: 0, y: 0}
+  inputDeadZone: 0.1
   speed: 8
   duration: 1
