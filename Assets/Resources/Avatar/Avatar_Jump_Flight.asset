@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Avatar_Jump_Flight
   m_EditorClassIdentifier: 
   initialSpeed: 5
+  allowInput: 0
   inputDeadZone: 1
-  defaultVelocity: {x: 1, y: 1}
+  defaultVelocity: {x: 1, y: 0.5}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Avatar_Jump_Water
   m_EditorClassIdentifier: 
   initialSpeed: 5
+  allowInput: 1
   inputDeadZone: 0.1
   defaultVelocity: {x: 1, y: 1}

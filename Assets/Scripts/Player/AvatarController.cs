@@ -34,7 +34,7 @@ namespace Runtime.Player {
             }
         }
         void FixedUpdate() {
-            isInWater = Physics.CheckSphere(transform.position, attachedCharacter.radius, waterLayer);
+            isInWater = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, waterLayer);
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
