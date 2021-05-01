@@ -237,9 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedAnimator: {fileID: 7104367353652039404}
-  speed: 3
-  waitTime: 2
-  reachDistance: 0.2
+  speed: 2.5
+  waitTime: 4
+  reachDistance: 0.0625
   pickWaypointsRandom: 0
 --- !u!1001 &4881082803785932823
 PrefabInstance:
