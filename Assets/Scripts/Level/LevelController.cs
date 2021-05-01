@@ -13,6 +13,8 @@ namespace Runtime.Level {
         }
         [SerializeField]
         Grid attachedGrid = default;
+        [SerializeField, Expandable]
+        Material spriteMaterial = default;
 
         void Awake() {
             OnValidate();
@@ -49,6 +51,7 @@ namespace Runtime.Level {
             tilemap.gameObject.layer = layer;
             var renderer = tilemap.gameObject.GetOrAddComponent<TilemapRenderer>();
             renderer.sortingOrder = order;
+            renderer.material = spriteMaterial;
             switch (mode) {
                 case CollisionMode.None:
                     break;

@@ -7,6 +7,8 @@ namespace Runtime.Player {
             intendsToJump,
             isGrounded,
             walkSpeed,
+            movementSpeed,
+            canFly,
         }
         [Header("MonoBehaviour")]
         [SerializeField]
@@ -25,6 +27,7 @@ namespace Runtime.Player {
         public Vector2 velocity;
         public bool isInWater;
         public bool isFacingLeft;
+        public bool canFly = true;
         public float facingMultiplier => isFacingLeft
             ? -1
             : 1;
@@ -48,7 +51,9 @@ namespace Runtime.Player {
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
+            attachedAnimator.SetBool(nameof(Parameters.canFly), canFly);
             attachedAnimator.SetFloat(nameof(Parameters.walkSpeed), Mathf.Abs(velocity.x));
+            attachedAnimator.SetFloat(nameof(Parameters.movementSpeed), velocity.magnitude);
             attachedRenderer.flipX = isFacingLeft;
 
             attachedCharacter.Move(velocity * Time.deltaTime);
