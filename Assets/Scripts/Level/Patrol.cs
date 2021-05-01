@@ -12,6 +12,8 @@ namespace Runtime.Level {
         [SerializeField, Range(0, 10)]
         float reachDistance = 1;
 
+        public bool pickWaypointsRandom;
+
         float currentWaitTime;
         bool facingRight;
         Waypoint[] waypoints;
@@ -43,12 +45,17 @@ namespace Runtime.Level {
                 // Wenn genug gewartet wurde
                 if (currentWaitTime <= 0) {
 
-                    if (currentWaypointIndex < waypoints.Length - 1) {
+                    if (pickWaypointsRandom) {
+                        currentWaypointIndex = Random.Range(0, waypoints.Length);
+                    } 
+                    else {
+                        if (currentWaypointIndex < waypoints.Length - 1) {
 
-                        currentWaypointIndex++;
+                            currentWaypointIndex++;
 
-                    } else {
-                        currentWaypointIndex = 0;
+                        } else {
+                            currentWaypointIndex = 0;
+                        }
                     }
 
                     currentWaitTime = waitTime;
