@@ -21,6 +21,8 @@ namespace Runtime.Player {
         [Header("Physics")]
         [SerializeField]
         LayerMask waterLayer = default;
+        [SerializeField]
+        LayerMask spotlightLayer = default;
 
         [Header("Debug")]
         public Vector2 movementInput;
@@ -48,6 +50,7 @@ namespace Runtime.Player {
         }
         void FixedUpdate() {
             isInWater = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, waterLayer);
+            canFly = !Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, spotlightLayer);
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
             attachedAnimator.SetBool(nameof(Parameters.isGrounded), attachedCharacter.isGrounded);
