@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Tilemaps;
 
-namespace Runtime {
+namespace Runtime.Level {
     [CreateAssetMenu(fileName = "LX_PlatformTile_New", menuName = "Tiles/Platform Tile", order = 100)]
     public class PlatformTile : TileBase {
         enum SpriteId {
