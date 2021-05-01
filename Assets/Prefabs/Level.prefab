@@ -57,3 +57,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedGrid: {fileID: 6201962056932711621}
+  spriteMaterial: {fileID: 2100000, guid: 6e8b82c759c604b41975700adc7db326, type: 2}
