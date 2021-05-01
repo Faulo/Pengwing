@@ -36,6 +36,7 @@ namespace Runtime.Level {
             RecreateTilemap("Midground", 1, CollisionMode.None, LayerMask.NameToLayer("Midground"));
             RecreateTilemap("Foreground_BehindWater", 2, CollisionMode.Collider, LayerMask.NameToLayer("Foreground"));
             RecreateTilemap("Foreground_Water", 3, CollisionMode.Trigger, LayerMask.NameToLayer("Water"));
+            RecreateTilemap("Foreground_Swamp", 3, CollisionMode.Trigger, LayerMask.NameToLayer("Swamp"));
             RecreateTilemap("Foreground_InFrontOfWater", 4, CollisionMode.Collider, LayerMask.NameToLayer("Foreground"));
             RecreateTilemap("Foreground_Details", 5, CollisionMode.None, LayerMask.NameToLayer("Foreground"));
         }
