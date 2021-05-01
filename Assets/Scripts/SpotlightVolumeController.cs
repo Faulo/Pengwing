@@ -1,13 +1,18 @@
+using System;
 using Runtime.Player;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace Runtime {
     public class SpotlightVolumeController : MonoBehaviour {
+        enum ObservationMode {
+            IsSeen,
+            IsDead
+        }
         [SerializeField]
         Volume attachedVolume = default;
-
-        AvatarController avatar;
+        [SerializeField]
+        ObservationMode mode = default;
 
         [SerializeField, Range(0, 10)]
         float maximumDuration = 1;
@@ -24,11 +29,16 @@ namespace Runtime {
                 TryGetComponent(out attachedVolume);
             }
         }
-        void Start() {
-            avatar = FindObjectOfType<AvatarController>();
-        }
         void Update() {
-            if (avatar.isSeen) {
+            if (!AvatarController.instance) {
+                return;
+            }
+            bool increase = mode switch {
+                ObservationMode.IsSeen => AvatarController.instance.isSeen,
+                ObservationMode.IsDead => !AvatarController.instance.isAlive,
+                _ => throw new NotImplementedException(mode.ToString()),
+            };
+            if (increase) {
                 timer += Time.deltaTime / maximumDuration;
             } else {
                 timer -= Time.deltaTime / maximumDuration;
