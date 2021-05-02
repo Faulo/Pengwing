@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50fb79c30e619c04a8188c2b4c5cb0be, type: 3}
-  m_Name: Avatar_Drag_Flying
+  m_Name: Avatar_Drag_Gliding
   m_EditorClassIdentifier: 
-  targetVelocity: {x: 0, y: 6}
-  duration: 0.5
+  targetVelocity: {x: 5, y: 2}
+  duration: 1

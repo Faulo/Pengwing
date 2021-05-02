@@ -47,11 +47,11 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 0
+  m_Radius: 0.40625
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0625
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7886186199483542926
@@ -69,19 +69,24 @@ MonoBehaviour:
   attachedCharacter: {fileID: 4375781673258034691}
   attachedAnimator: {fileID: 3006179625971808098}
   attachedRenderer: {fileID: 6888382834102438131}
+  manualUpdate: 1
   spotlightLayer:
     serializedVersion: 2
     m_Bits: 512
+  goalLayer:
+    serializedVersion: 2
+    m_Bits: 1
   waterLayer:
     serializedVersion: 2
-    m_Bits: 1040
-  waterOffset: {x: 0, y: 0.5, z: 0}
-  waterRadius: 1
+    m_Bits: 16
+  waterOffset: {x: 0, y: 0.25, z: 0}
+  waterRadius: 0.25
   swampLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   swampOffset: {x: 0, y: 0, z: 0}
-  swampRadius: 1
+  swampRadius: 0.25
+  jumpBufferDuration: 0.3
   movementInput: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isInWater: 0
@@ -90,6 +95,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isSeen: 0
   canFly: 1
+  isWin: 0
 --- !u!114 &5745124253976999427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +361,6 @@ MonoBehaviour:
   swampLayer:
     serializedVersion: 2
     m_Bits: 1024
-  swampRadius: 0.25
+  swampRadius: 0.4
   crocPrefab: {fileID: 5663918583417786354, guid: dc061c5c6f10d604ab9248a5247bd5f6, type: 3}
   crocDuration: 0.75

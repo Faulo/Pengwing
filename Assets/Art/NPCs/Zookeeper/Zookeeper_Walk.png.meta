@@ -1,13 +1,31 @@
 fileFormatVersion: 2
-guid: 8e2ad2cd5cd73324c9f3dd6cb3063a62
+guid: b665b15702173bb439077c33971cfd7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4213548205983672316
-    second: Bench_0
+      213: 8487872054795990751
+    second: Zookeeper_Walk_0
   - first:
-      213: -1156564579131411562
-    second: Bench_1
+      213: -3950399613890009738
+    second: Zookeeper_Walk_1
+  - first:
+      213: 3484265589734260020
+    second: Zookeeper_Walk_2
+  - first:
+      213: 697977285632418496
+    second: Zookeeper_Walk_3
+  - first:
+      213: 3049968214830787346
+    second: Zookeeper_Walk_4
+  - first:
+      213: -5000067600969024694
+    second: Zookeeper_Walk_5
+  - first:
+      213: 727109001207852410
+    second: Zookeeper_Walk_6
+  - first:
+      213: 3590515394195844989
+    second: Zookeeper_Walk_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -54,7 +72,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -145,43 +163,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bench_0
+      name: Zookeeper_Walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf724add4c7897a30800000000000000
-      internalID: 4213548205983672316
+      spriteID: fd67415c9aafac570800000000000000
+      internalID: 8487872054795990751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bench_1
+      name: Zookeeper_Walk_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 48
         y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693b21d94ae03ffe0800000000000000
-      internalID: -1156564579131411562
+      spriteID: 675ee353b7c5d29c0800000000000000
+      internalID: -3950399613890009738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d3a3be7199a5030800000000000000
+      internalID: 3484265589734260020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2696ba4a6bfa900800000000000000
+      internalID: 697977285632418496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ba8359ee9a35a20800000000000000
+      internalID: 3049968214830787346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b3d4722013c9ab0800000000000000
+      internalID: -5000067600969024694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7dabf1c8c5371a00800000000000000
+      internalID: 727109001207852410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zookeeper_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f6d974ab214d130800000000000000
+      internalID: 3590515394195844989
       vertices: []
       indices: 
       edges: []
@@ -189,7 +333,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: f038c9e1717b3764188f8d1d84ac32b4
     internalID: 0
     vertices: []
     indices: 

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8eea3059bde5254abd02502c1b19d76, type: 3}
   m_Name: Avatar_Jump_Flight
   m_EditorClassIdentifier: 
-  initialSpeed: 4
+  initialSpeed: 3
   allowTurning: 1
   turningDeadZone: 0.1
   allowInput: 0
   inputDeadZone: 1
-  defaultVelocity: {x: 1, y: 0.75}
+  defaultVelocity: {x: 0.5, y: 0.75}
