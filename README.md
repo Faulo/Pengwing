@@ -17,3 +17,6 @@ https://freesound.org/people/Mamboman/sounds/212786/
 https://freesound.org/people/_stubb/sounds/389634/
 https://freesound.org/people/angeliqueperdikes/sounds/327047/
 https://freesound.org/people/NachtmahrTV/sounds/553245/
+https://freesound.org/people/vataaa/sounds/148873/
+https://freesound.org/people/Bidone/sounds/67355/
+https://freesound.org/people/allornothing21/sounds/235234/
