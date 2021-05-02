@@ -1350,6 +1350,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8676940389170282747, guid: 73f24e6125b971d448294301d59fd442, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676940389170282747, guid: 73f24e6125b971d448294301d59fd442, type: 3}
       propertyPath: m_Color.b
       value: 0.5529412
       objectReference: {fileID: 0}
@@ -1360,6 +1364,10 @@ PrefabInstance:
     - target: {fileID: 8676940389170282747, guid: 73f24e6125b971d448294301d59fd442, type: 3}
       propertyPath: m_Color.r
       value: 0.9647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676940389170282747, guid: 73f24e6125b971d448294301d59fd442, type: 3}
+      propertyPath: m_LightVolumeIntensity
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8676940389170282747, guid: 73f24e6125b971d448294301d59fd442, type: 3}
       propertyPath: m_ShapePath.Array.size
