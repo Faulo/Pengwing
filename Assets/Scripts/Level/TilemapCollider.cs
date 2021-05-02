@@ -46,6 +46,7 @@ namespace Runtime.Level {
                     var type = attachedTilemap.GetColliderType(position);
                     switch (type) {
                         case Tile.ColliderType.None:
+                        case Tile.ColliderType.Sprite:
                             break;
                         case Tile.ColliderType.Grid:
                             var worldPosition = attachedTilemap.CellToWorld(position) + attachedTilemap.tileAnchor;
@@ -63,6 +64,7 @@ namespace Runtime.Level {
                 }
             }
             var mesh = new Mesh();
+            mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             mesh.CombineMeshes(meshes.ToArray(), true, true, false);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
