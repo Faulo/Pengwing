@@ -9,10 +9,10 @@ namespace Runtime {
 
         GameObject instance;
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-            Instantiate(prefab, animator.transform);
+            instance = Instantiate(prefab, animator.transform);
         }
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-            if (destroyOnExit && instance) {
+            if (destroyOnExit && instance) {               
                 Destroy(instance);
             }
         }
