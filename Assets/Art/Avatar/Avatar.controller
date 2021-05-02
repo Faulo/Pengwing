@@ -331,6 +331,7 @@ AnimatorState:
   - {fileID: 6310346009302557757}
   - {fileID: -5079030276053566297}
   - {fileID: 3797255620329371504}
+  - {fileID: -4867446921295028467}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -481,6 +482,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 11400000, guid: c96fb898853b1f54b804dd2a95509973, type: 2}
+--- !u!114 &-4867446921295028467
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8a8d2efcfaa2c499f3c7bdaace6213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8665482546577898229, guid: 7a7c3de31bf922047baa267d838afad0, type: 3}
+  destroyOnExit: 0
 --- !u!114 &-4599810867853635512
 MonoBehaviour:
   m_ObjectHideFlags: 1
