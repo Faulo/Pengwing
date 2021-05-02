@@ -6,25 +6,14 @@ using UnityEngine.Tilemaps;
 
 namespace Runtime.Level {
     public class LevelController : MonoBehaviour {
+#if UNITY_EDITOR
         enum CollisionMode {
             None,
             Collider,
             Trigger
         }
-        [SerializeField]
-        Grid attachedGrid = default;
         [SerializeField, Expandable]
         Material spriteMaterial = default;
-
-        void Awake() {
-            OnValidate();
-        }
-        void OnValidate() {
-            if (!attachedGrid) {
-                TryGetComponent(out attachedGrid);
-            }
-        }
-#if UNITY_EDITOR
         [UnityEditor.CustomEditor(typeof(LevelController))]
         class LevelControllerEditor : RuntimeEditorTools<LevelController> {
             protected override void DrawEditorTools() {
