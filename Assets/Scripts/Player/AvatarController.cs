@@ -40,6 +40,8 @@ namespace Runtime.Player {
         Vector3 swampOffset = Vector3.zero;
         [SerializeField, Range(0, 1)]
         float swampRadius = 1;
+        [SerializeField, Range(-100, 100)]
+        float outOfBoundsY = -10;
 
         [Header("Input")]
         [SerializeField, Range(0, 1)]
@@ -80,7 +82,7 @@ namespace Runtime.Player {
         void FixedUpdate() {
             UpdateJump();
             isInWater = Physics2D.OverlapCircle(transform.position + waterOffset, waterRadius, waterLayer);
-            isInSwamp = Physics2D.OverlapCircle(transform.position + swampOffset, swampRadius, swampLayer);
+            isInSwamp = transform.position.y < outOfBoundsY || Physics2D.OverlapCircle(transform.position + swampOffset, swampRadius, swampLayer);
             isSeen = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, spotlightLayer);
             if (isInSwamp) {
                 isAlive = false;
