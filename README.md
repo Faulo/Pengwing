@@ -11,3 +11,8 @@ Spring Game Jam 2021:
 - Nico Auerswald (art, programming)
 - Elisabeth Harzbecker  (art, level design)
 - Daniel Schulz (programming)
+
+## Sound Credits
+https://freesound.org/people/Mamboman/sounds/212786/
+https://freesound.org/people/_stubb/sounds/389634/
+https://freesound.org/people/angeliqueperdikes/sounds/327047/
