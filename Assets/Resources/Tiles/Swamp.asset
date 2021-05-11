@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a411d51441d68c4f88e1619f47316a1, type: 3}
+  m_Name: Swamp
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 562947999295770730, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 5709216214543860217, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 5859237109798212724, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: -6093482234758406986, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 7108977360601620278, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 3344016165987784017, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: -3641291841218167496, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 3188910820774984171, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 3813711657174363925, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 3401962237081555845, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 5899694846949352925, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 6119249015709410604, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 6810521558834465475, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: -8145369242971219131, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: -623310174608881871, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  - {fileID: 1620471162293753416, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
+  tileOptions: 3
+  colliderType: 2
+  spriteSheet: {fileID: 2800000, guid: c693a44e22f8b8a4988cb432a6c55521, type: 3}
