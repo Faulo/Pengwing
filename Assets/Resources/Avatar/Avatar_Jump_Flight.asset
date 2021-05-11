@@ -17,4 +17,4 @@ MonoBehaviour:
   turningDeadZone: 0.1
   allowInput: 0
   inputDeadZone: 1
-  defaultVelocity: {x: 0.5, y: 0.75}
+  defaultVelocity: {x: 0.25, y: 0.75}
