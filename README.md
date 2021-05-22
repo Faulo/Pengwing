@@ -1,4 +1,4 @@
-# Chart Runner
+# Pengwing
 A game about the greatest secret of the penguin.
 
 ## Jam Details
