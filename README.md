@@ -1,5 +1,5 @@
 # Pengwing
-A game about the greatest secret of the penguin.
+A game about flying penguins and other conspiracies.
 
 ## Jam Details
 Spring Game Jam 2021: 
