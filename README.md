@@ -5,7 +5,7 @@ A game about flying penguins and other conspiracies.
 Spring Game Jam 2021: 
 - Date: 30.04.2021 - 02.05.2021
 - Site: Universität Bayreuth
-- Theme: "Doppelleben" ("double lives")
+- Theme: "Doppelleben" \[double lives\]
 
 ## Credits
 - Nico Auerswald (art, programming)
