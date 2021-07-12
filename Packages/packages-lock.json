@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.domybest.mybox": {
-      "version": "1.6.2",
+      "version": "1.7.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -23,18 +23,8 @@
       "source": "builtin",
       "dependencies": {}
     },
-    "com.unity.2d.tilemap.extras": {
-      "version": "2.0.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.tilemap": "1.0.0",
-        "com.unity.2d.tilemap": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.cinemachine": {
-      "version": "2.7.3",
+      "version": "2.7.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -48,7 +38,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.8",
+      "version": "2.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -96,6 +86,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.settings-manager": {
+      "version": "1.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.shadergraph": {
       "version": "11.0.0",
       "depth": 1,
@@ -106,7 +103,7 @@
       }
     },
     "com.unity.test-framework": {
-      "version": "1.1.24",
+      "version": "1.1.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -126,7 +123,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.5.5",
+      "version": "1.5.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -147,12 +144,13 @@
       }
     },
     "net.slothsoft.unity-extensions": {
-      "version": "1.2.5",
+      "version": "1.4.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.0.13",
-        "com.unity.modules.tilemap": "1.0.0"
+        "com.unity.modules.tilemap": "1.0.0",
+        "com.unity.settings-manager": "1.0.3"
       },
       "url": "https://package.openupm.com"
     },
