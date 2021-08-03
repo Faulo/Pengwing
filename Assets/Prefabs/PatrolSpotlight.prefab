@@ -47,13 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedLight: {fileID: 8676940389170282747}
   attachedPolygon: {fileID: 8676940389170282745}
+  algorithm: 0
   rayLayers:
     serializedVersion: 2
     m_Bits: 256
   startAngle: -60
   stopAngle: 60
-  rayCount: 64
   distance: 25
+  rayCount: 64
+  drawGizmos: 0
 --- !u!114 &8676940389170282747
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,13 +1,22 @@
-using System.Collections.Generic;
+using Runtime.Level.VisionCones;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Runtime.Level {
     public class PatrolSpotlight : MonoBehaviour {
+        enum VisionConeAlgorithm {
+            Raycasts,
+            WallTracking,
+        }
+        [Header("MonoBehaviour setup")]
         [SerializeField]
         Light2D attachedLight = default;
         [SerializeField]
         PolygonCollider2D attachedPolygon = default;
+
+        [Header("Vision Cone algorithm")]
+        [SerializeField]
+        VisionConeAlgorithm algorithm = VisionConeAlgorithm.Raycasts;
         [SerializeField]
         LayerMask rayLayers = default;
         [SerializeField, Range(-90, 90)]
@@ -15,30 +24,32 @@ namespace Runtime.Level {
         [SerializeField, Range(-90, 90)]
         float stopAngle = 45;
         [SerializeField, Range(0, 1000)]
-        int rayCount = 100;
-        [SerializeField, Range(0, 1000)]
         float distance = 100;
+
+        [Header("Vision Cone: Raycasts")]
+        [SerializeField, Range(0, 1000)]
+        int rayCount = 100;
+
+        IVisionCone cone {
+            get {
+                if (m_cone == null) {
+                    m_cone = algorithm switch {
+                        VisionConeAlgorithm.Raycasts => new RaycastVisionCone(rayCount),
+                        VisionConeAlgorithm.WallTracking => throw new System.NotImplementedException(),
+                        _ => throw new System.NotImplementedException(),
+                    };
+                    m_cone.Setup(transform, rayLayers, startAngle, stopAngle, distance);
+                }
+                return m_cone;
+            }
+        }
+        IVisionCone m_cone;
 
         Vector3 position => transform.position;
         Vector2[] path;
-        int pathLength => rayCount + 1;
-
-        IEnumerable<Vector3> allPoints {
-            get {
-                yield return Vector3.zero;
-                float delta = (stopAngle - startAngle) / rayCount;
-                for (int i = 0; i < rayCount; i++) {
-                    var rotation = transform.rotation * Quaternion.Euler(0, 0, startAngle + (delta * i));
-                    var ray = new Ray(position, rotation * Vector3.right);
-                    yield return Physics.Raycast(ray, out var hit, distance, rayLayers)
-                        ? hit.point - position
-                        : ray.direction * distance;
-                }
-            }
-        }
 
         void Awake() {
-            path = new Vector2[pathLength];
+            path = new Vector2[cone.vertexCount];
             OnValidate();
         }
         void OnValidate() {
@@ -50,28 +61,32 @@ namespace Runtime.Level {
             }
 #if UNITY_EDITOR
             var lightObj = new UnityEditor.SerializedObject(attachedLight);
-            lightObj.FindProperty("m_ShapePath").arraySize = pathLength;
+            lightObj.FindProperty("m_ShapePath").arraySize = cone.vertexCount;
             lightObj.ApplyModifiedProperties();
-            path = new Vector2[pathLength];
+            path = new Vector2[cone.vertexCount];
             FixedUpdate();
 #endif
         }
         void FixedUpdate() {
             int i = 0;
-            foreach (var point in allPoints) {
+            foreach (var point in cone.GetVertices()) {
                 attachedLight.shapePath[i] = path[i] = transform.rotation * point;
                 i++;
             }
             attachedPolygon.pathCount = 1;
             attachedPolygon.SetPath(0, path);
         }
+
+        [Header("Debug")]
+        [SerializeField]
+        bool drawGizmos = false;
         void OnDrawGizmos() {
-            /*
-            Gizmos.color = Color.cyan;
-            foreach (var point in allPoints) {
-                Gizmos.DrawLine(position, position + point);
+            if (drawGizmos) {
+                Gizmos.color = Color.cyan;
+                foreach (var point in cone.GetVertices()) {
+                    Gizmos.DrawLine(position, position + point);
+                }
             }
-            //*/
         }
     }
 }

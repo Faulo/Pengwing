@@ -63,8 +63,9 @@ namespace Runtime.Level {
                     }
                 }
             }
-            var mesh = new Mesh();
-            mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            var mesh = new Mesh {
+                indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
+            };
             mesh.CombineMeshes(meshes.ToArray(), true, true, false);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
