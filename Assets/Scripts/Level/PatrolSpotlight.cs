@@ -1,4 +1,5 @@
 using Runtime.Level.VisionCones;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -19,9 +20,9 @@ namespace Runtime.Level {
         VisionConeAlgorithm algorithm = VisionConeAlgorithm.Raycasts;
         [SerializeField]
         LayerMask rayLayers = default;
-        [SerializeField, Range(-90, 90)]
+        [SerializeField, Range(-180, 180)]
         float startAngle = -45;
-        [SerializeField, Range(-90, 90)]
+        [SerializeField, Range(-180, 180)]
         float stopAngle = 45;
         [SerializeField, Range(0, 1000)]
         float distance = 100;
@@ -49,6 +50,7 @@ namespace Runtime.Level {
         Vector2[] path;
 
         void Awake() {
+            m_cone = null;
             path = new Vector2[cone.vertexCount];
             OnValidate();
         }
@@ -70,7 +72,7 @@ namespace Runtime.Level {
         void FixedUpdate() {
             int i = 0;
             foreach (var point in cone.GetVertices()) {
-                attachedLight.shapePath[i] = path[i] = transform.rotation * point;
+                attachedLight.shapePath[i] = path[i] = Quaternion.Inverse(transform.rotation) * point;
                 i++;
             }
             attachedPolygon.pathCount = 1;
@@ -83,8 +85,8 @@ namespace Runtime.Level {
         void OnDrawGizmos() {
             if (drawGizmos) {
                 Gizmos.color = Color.cyan;
-                foreach (var point in cone.GetVertices()) {
-                    Gizmos.DrawLine(position, position + point);
+                foreach (var point in attachedPolygon.GetPath(0)) {
+                    Gizmos.DrawLine(position, position + (transform.rotation * point.SwizzleXY()));
                 }
             }
         }
