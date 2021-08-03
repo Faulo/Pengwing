@@ -1,3 +1,4 @@
+using System;
 using Runtime.Level.VisionCones;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
@@ -6,8 +7,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 namespace Runtime.Level {
     public class PatrolSpotlight : MonoBehaviour {
         enum VisionConeAlgorithm {
-            Raycasts,
-            WallTracking,
+            ConstantRaycastCount,
+            DynamicRaycastCount,
+            WallTrackingRaycasts,
         }
         [Header("MonoBehaviour setup")]
         [SerializeField]
@@ -17,7 +19,7 @@ namespace Runtime.Level {
 
         [Header("Vision Cone algorithm")]
         [SerializeField]
-        VisionConeAlgorithm algorithm = VisionConeAlgorithm.Raycasts;
+        VisionConeAlgorithm algorithm = VisionConeAlgorithm.ConstantRaycastCount;
         [SerializeField]
         LayerMask rayLayers = default;
         [SerializeField, Range(-180, 180)]
@@ -27,16 +29,21 @@ namespace Runtime.Level {
         [SerializeField, Range(0, 1000)]
         float distance = 100;
 
-        [Header("Vision Cone: Raycasts")]
+        [Header("Vision Cone: Constant Raycasts")]
         [SerializeField, Range(0, 1000)]
         int rayCount = 100;
+
+        [Header("Vision Cone: Dynamic Raycasts")]
+        [SerializeField, Expandable]
+        MeshCollider rayCollider = default;
 
         IVisionCone cone {
             get {
                 if (m_cone == null) {
                     m_cone = algorithm switch {
-                        VisionConeAlgorithm.Raycasts => new RaycastVisionCone(rayCount),
-                        VisionConeAlgorithm.WallTracking => throw new System.NotImplementedException(),
+                        VisionConeAlgorithm.ConstantRaycastCount => new ConstantRaycastVisionCone(rayCount),
+                        VisionConeAlgorithm.DynamicRaycastCount => new DynamicRaycastVisionCone(rayCollider),
+                        VisionConeAlgorithm.WallTrackingRaycasts => throw new System.NotImplementedException(),
                         _ => throw new System.NotImplementedException(),
                     };
                     m_cone.Setup(transform, rayLayers, startAngle, stopAngle, distance);
@@ -47,11 +54,10 @@ namespace Runtime.Level {
         IVisionCone m_cone;
 
         Vector3 position => transform.position;
-        Vector2[] path;
+        Vector2[] path = Array.Empty<Vector2>();
 
         void Awake() {
             m_cone = null;
-            path = new Vector2[cone.vertexCount];
             OnValidate();
         }
         void OnValidate() {
@@ -61,6 +67,9 @@ namespace Runtime.Level {
             if (!attachedPolygon) {
                 TryGetComponent(out attachedPolygon);
             }
+        }
+        void UpdateVertexCount() {
+            Array.Resize(ref path, cone.vertexCount);
 #if UNITY_EDITOR
             var lightObj = new UnityEditor.SerializedObject(attachedLight);
             lightObj.FindProperty("m_ShapePath").arraySize = cone.vertexCount;
@@ -70,6 +79,9 @@ namespace Runtime.Level {
 #endif
         }
         void FixedUpdate() {
+            if (path.Length != cone.vertexCount) {
+                UpdateVertexCount();
+            }
             int i = 0;
             foreach (var point in cone.GetVertices()) {
                 attachedLight.shapePath[i] = path[i] = Quaternion.Inverse(transform.rotation) * point;

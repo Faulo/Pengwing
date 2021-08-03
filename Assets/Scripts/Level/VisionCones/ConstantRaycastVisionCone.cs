@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Runtime.Level.VisionCones {
-    public class RaycastVisionCone : IVisionCone {
+    public class ConstantRaycastVisionCone : IVisionCone {
         readonly int rayCount;
 
         Transform origin;
@@ -13,7 +13,7 @@ namespace Runtime.Level.VisionCones {
 
         public int vertexCount => rayCount + 1;
 
-        public RaycastVisionCone(int rayCount) {
+        public ConstantRaycastVisionCone(int rayCount) {
             this.rayCount = rayCount;
         }
         public void Setup(Transform origin, LayerMask layers, float startAngle, float stopAngle, float distance) {

@@ -55,6 +55,7 @@ MonoBehaviour:
   stopAngle: 60
   distance: 25
   rayCount: 64
+  rayCollider: {fileID: 0}
   drawGizmos: 0
 --- !u!114 &8676940389170282747
 MonoBehaviour:
