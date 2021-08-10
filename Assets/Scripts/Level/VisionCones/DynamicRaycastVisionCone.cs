@@ -13,7 +13,7 @@ namespace Runtime.Level.VisionCones {
         float distance;
 
         Vector3 lastCheckedPosition;
-        readonly List<Vector3> vertices = new List<Vector3>();
+        readonly List<Vector2> vertices = new List<Vector2>();
         public int vertexCount {
             get {
                 UpdateVertices();
@@ -31,18 +31,18 @@ namespace Runtime.Level.VisionCones {
             this.stopAngle = stopAngle;
             this.distance = distance;
         }
-        public IEnumerable<Vector3> GetVertices() {
+        public IEnumerable<Vector2> GetVertices() {
             UpdateVertices();
             return vertices;
         }
         void UpdateVertices() {
             if (lastCheckedPosition != origin.position && meshCollider.sharedMesh) {
                 lastCheckedPosition = origin.position;
-                var potentialVertices = new SortedList<float, Vector3>();
+                var potentialVertices = new SortedList<float, Vector2>();
                 foreach (var vertex in meshCollider.sharedMesh.vertices) {
                     float angle = Vector2.SignedAngle(lastCheckedPosition, vertex);
                     if (!potentialVertices.ContainsKey(angle)) {
-                        if (Vector3.Distance(vertex, lastCheckedPosition) <= distance) {
+                        if (Vector2.Distance(vertex, lastCheckedPosition) <= distance) {
                             if (angle >= startAngle && angle <= stopAngle) {
                                 potentialVertices.Add(angle, vertex);
                             }

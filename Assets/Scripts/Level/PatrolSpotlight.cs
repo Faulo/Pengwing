@@ -2,30 +2,30 @@ using System;
 using Runtime.Level.VisionCones;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Runtime.Level {
-    public class PatrolSpotlight : MonoBehaviour {
+    public class PatrolSpotlight : MonoBehaviour, IVisionComponent {
+        public event Action<Vector2[]> onPathChanged;
         enum VisionConeAlgorithm {
+            Null,
             ConstantRaycastCount,
             DynamicRaycastCount,
             WallTrackingRaycasts,
         }
-        [Header("MonoBehaviour setup")]
-        [SerializeField]
-        Light2D attachedLight = default;
-        [SerializeField]
-        PolygonCollider2D attachedPolygon = default;
-
+        enum UpdateMethod {
+            Update,
+            FixedUpdate,
+            LateUpdate,
+        }
         [Header("Vision Cone algorithm")]
         [SerializeField]
         VisionConeAlgorithm algorithm = VisionConeAlgorithm.ConstantRaycastCount;
         [SerializeField]
         LayerMask rayLayers = default;
         [SerializeField, Range(-180, 180)]
-        float startAngle = -45;
+        float startAngle = -60;
         [SerializeField, Range(-180, 180)]
-        float stopAngle = 45;
+        float stopAngle = 60;
         [SerializeField, Range(0, 1000)]
         float distance = 100;
 
@@ -37,70 +37,76 @@ namespace Runtime.Level {
         [SerializeField, Expandable]
         MeshCollider rayCollider = default;
 
-        IVisionCone cone {
-            get {
-                if (m_cone == null) {
-                    m_cone = algorithm switch {
-                        VisionConeAlgorithm.ConstantRaycastCount => new ConstantRaycastVisionCone(rayCount),
-                        VisionConeAlgorithm.DynamicRaycastCount => new DynamicRaycastVisionCone(rayCollider),
-                        VisionConeAlgorithm.WallTrackingRaycasts => throw new System.NotImplementedException(),
-                        _ => throw new System.NotImplementedException(),
-                    };
-                    m_cone.Setup(transform, rayLayers, startAngle, stopAngle, distance);
-                }
-                return m_cone;
-            }
-        }
-        IVisionCone m_cone;
+        [SerializeField]
+        UpdateMethod updateMethod = UpdateMethod.FixedUpdate;
 
-        Vector3 position => transform.position;
+
+        IVisionCone cone;
         Vector2[] path = Array.Empty<Vector2>();
 
-        void Awake() {
-            m_cone = null;
-            OnValidate();
+        void CreateCone() {
+            cone = algorithm switch {
+                VisionConeAlgorithm.Null => new NullVisionCone(),
+                VisionConeAlgorithm.ConstantRaycastCount => new ConstantRaycastVisionCone(rayCount),
+                VisionConeAlgorithm.DynamicRaycastCount => new DynamicRaycastVisionCone(rayCollider),
+                VisionConeAlgorithm.WallTrackingRaycasts => throw new NotImplementedException(),
+                _ => throw new NotImplementedException(),
+            };
+            cone.Setup(transform, rayLayers, startAngle, stopAngle, distance);
         }
-        void OnValidate() {
-            if (!attachedLight) {
-                TryGetComponent(out attachedLight);
+        void UpdateCone() {
+            bool hasChanged = false;
+            if (cone == null) {
+                CreateCone();
+                hasChanged = true;
             }
-            if (!attachedPolygon) {
-                TryGetComponent(out attachedPolygon);
-            }
-        }
-        void UpdateVertexCount() {
-            Array.Resize(ref path, cone.vertexCount);
-#if UNITY_EDITOR
-            var lightObj = new UnityEditor.SerializedObject(attachedLight);
-            lightObj.FindProperty("m_ShapePath").arraySize = cone.vertexCount;
-            lightObj.ApplyModifiedProperties();
-            path = new Vector2[cone.vertexCount];
-            FixedUpdate();
-#endif
-        }
-        void FixedUpdate() {
             if (path.Length != cone.vertexCount) {
-                UpdateVertexCount();
+                path = new Vector2[cone.vertexCount];
+                hasChanged = true;
             }
             int i = 0;
             foreach (var point in cone.GetVertices()) {
-                attachedLight.shapePath[i] = path[i] = Quaternion.Inverse(transform.rotation) * point;
+                if (path[i] != point) {
+                    path[i] = point;
+                    hasChanged = true;
+                }
                 i++;
             }
-            attachedPolygon.pathCount = 1;
-            attachedPolygon.SetPath(0, path);
-        }
-
-        [Header("Debug")]
-        [SerializeField]
-        bool drawGizmos = false;
-        void OnDrawGizmos() {
-            if (drawGizmos) {
-                Gizmos.color = Color.cyan;
-                foreach (var point in attachedPolygon.GetPath(0)) {
-                    Gizmos.DrawLine(position, position + (transform.rotation * point.SwizzleXY()));
-                }
+            if (hasChanged) {
+                onPathChanged?.Invoke(path);
             }
+        }
+        void Update() {
+            if (updateMethod == UpdateMethod.Update) {
+                UpdateCone();
+            }
+        }
+        void FixedUpdate() {
+            if (updateMethod == UpdateMethod.FixedUpdate) {
+                UpdateCone();
+            }
+        }
+        void LateUpdate() {
+            if (updateMethod == UpdateMethod.LateUpdate) {
+                UpdateCone();
+            }
+        }
+        void OnDrawGizmos() {
+            var startOffset = transform.rotation * Quaternion.Euler(0, 0, -startAngle) * new Vector3(distance, 0, 0);
+            var stopOffset = transform.rotation * Quaternion.Euler(0, 0, -stopAngle) * new Vector3(distance, 0, 0);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(
+                transform.position,
+                transform.position + startOffset
+            );
+            Gizmos.DrawLine(
+                transform.position + startOffset,
+                transform.position + stopOffset
+            );
+            Gizmos.DrawLine(
+                transform.position,
+                transform.position + stopOffset
+            );
         }
     }
 }
