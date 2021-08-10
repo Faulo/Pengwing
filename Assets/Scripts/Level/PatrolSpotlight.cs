@@ -6,39 +6,39 @@ using UnityEngine;
 namespace Runtime.Level {
     public class PatrolSpotlight : MonoBehaviour, IVisionComponent {
         public event Action<Vector2[]> onPathChanged;
-        enum VisionConeAlgorithm {
+        internal enum VisionConeAlgorithm {
             Null,
             ConstantRaycastCount,
             DynamicRaycastCount,
             WallTrackingRaycasts,
         }
-        enum UpdateMethod {
+        internal enum UpdateMethod {
             Update,
             FixedUpdate,
             LateUpdate,
         }
         [Header("Vision Cone algorithm")]
         [SerializeField]
-        VisionConeAlgorithm algorithm = VisionConeAlgorithm.ConstantRaycastCount;
+        internal VisionConeAlgorithm algorithm = VisionConeAlgorithm.ConstantRaycastCount;
         [SerializeField]
-        LayerMask rayLayers = default;
+        internal LayerMask rayLayers = default;
         [SerializeField, Range(-180, 180)]
-        float startAngle = -60;
+        internal float startAngle = -60;
         [SerializeField, Range(-180, 180)]
-        float stopAngle = 60;
+        internal float stopAngle = 60;
         [SerializeField, Range(0, 1000)]
-        float distance = 100;
+        internal float distance = 100;
 
         [Header("Vision Cone: Constant Raycasts")]
         [SerializeField, Range(0, 1000)]
-        int rayCount = 100;
+        internal int rayCount = 100;
 
         [Header("Vision Cone: Dynamic Raycasts")]
         [SerializeField, Expandable]
-        MeshCollider rayCollider = default;
+        internal MeshCollider rayCollider = default;
 
         [SerializeField]
-        UpdateMethod updateMethod = UpdateMethod.FixedUpdate;
+        internal UpdateMethod updateMethod = UpdateMethod.FixedUpdate;
 
 
         IVisionCone cone;

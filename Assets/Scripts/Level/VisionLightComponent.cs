@@ -31,7 +31,7 @@ namespace Runtime.Level {
                 path = new[] { (Vector2)transform.position };
             }
 #if UNITY_EDITOR
-            if (attachedLight.shapePath.Length != path.Length) {
+            if (attachedLight.shapePath == null || attachedLight.shapePath.Length != path.Length) {
                 var lightObj = new UnityEditor.SerializedObject(attachedLight);
                 lightObj.FindProperty("m_ShapePath").arraySize = path.Length;
                 lightObj.ApplyModifiedProperties();
