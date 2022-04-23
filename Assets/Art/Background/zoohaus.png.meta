@@ -150,6 +150,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1156,6 +1157,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      zoohaus_29: 8095547505563214079
+      zoohaus_25: 3032751400275268546
+      zoohaus_35: -1657974963716228481
+      zoohaus_21: 7489159931365625719
+      zoohaus_26: 2069990605296587677
+      zoohaus_41: 6437279147786774265
+      zoohaus_27: 5835549771230424114
+      zoohaus_7: 6957419950367868006
+      zoohaus_33: -7005535119474659089
+      zoohaus_30: -5716662488312637432
+      zoohaus_4: 2764679586904535264
+      zoohaus_5: 3570157778987644635
+      zoohaus_18: -8325709850701960741
+      zoohaus_20: -2843750550612930435
+      zoohaus_22: 8155092066635012387
+      zoohaus_24: -5532387423706800897
+      zoohaus_39: -1873832840293831281
+      zoohaus_2: 6262871962191610184
+      zoohaus_0: -1320068882679720154
+      zoohaus_6: 1925466393503387107
+      zoohaus_14: 3934208080277744944
+      zoohaus_12: -7996873245857643207
+      zoohaus_23: -3118239688454457900
+      zoohaus_1: 3904041196450105614
+      zoohaus_8: -7554870084909205674
+      zoohaus_37: 7178319386780217791
+      zoohaus_11: -5251880224564045508
+      zoohaus_13: 6587875465143717721
+      zoohaus_32: 105770883509822421
+      zoohaus_9: -2132829041927083641
+      zoohaus_28: 377119521963701804
+      zoohaus_15: 3291437280011091589
+      zoohaus_40: 41806539104918633
+      zoohaus_10: -6350953715787320444
+      zoohaus_16: 2459011867182967695
+      zoohaus_38: -1639054688587604330
+      zoohaus_34: -3909606101691512054
+      zoohaus_31: -8225056183123119928
+      zoohaus_36: -5136762926197561369
+      zoohaus_3: 5453361407451893466
+      zoohaus_17: -6230325737019739547
+      zoohaus_19: 2736899779192726682
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

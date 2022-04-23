@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -340,6 +341,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Zookeeper_Walk_1: -3950399613890009738
+      Zookeeper_Walk_2: 3484265589734260020
+      Zookeeper_Walk_6: 727109001207852410
+      Zookeeper_Walk_5: -5000067600969024694
+      Zookeeper_Walk_4: 3049968214830787346
+      Zookeeper_Walk_3: 697977285632418496
+      Zookeeper_Walk_7: 3590515394195844989
+      Zookeeper_Walk_0: 8487872054795990751
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

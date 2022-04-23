@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1300,6 +1301,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Mine_Tileset_42: 730100388821165014
+      Mine_Tileset_23: 7911428356104339723
+      Mine_Tileset_6: -5780268167924781286
+      Mine_Tileset_7: -361660132387325710
+      Mine_Tileset_29: 7632206827579015276
+      Mine_Tileset_17: 7921734404387819126
+      Mine_Tileset_33: -2561314221920328669
+      Mine_Tileset_14: -4652325008994177533
+      Mine_Tileset_28: -3592457485727721826
+      Mine_Tileset_37: -1512093019754922960
+      Mine_Tileset_27: 6372867711596691598
+      Mine_Tileset_2: -9191846720024857380
+      Mine_Tileset_21: 998357567237840589
+      Mine_Tileset_26: 319038573877766286
+      Mine_Tileset_39: 9040130169378838334
+      Mine_Tileset_31: -5997902559323850925
+      Mine_Tileset_12: -4136630490289797950
+      Mine_Tileset_45: -1337943544036716078
+      Mine_Tileset_1: -8847318340826718171
+      Mine_Tileset_25: -7849812944762477202
+      Mine_Tileset_32: -1043569313467704541
+      Mine_Tileset_20: -1852357586723615492
+      Mine_Tileset_43: -8657350013126056702
+      Mine_Tileset_13: -48711283956095180
+      Mine_Tileset_30: 8051573016491663596
+      Mine_Tileset_19: -5282710273556463436
+      Mine_Tileset_11: 3519993696124976491
+      Mine_Tileset_41: 4093267685684823400
+      Mine_Tileset_15: 8132329273806987292
+      Mine_Tileset_3: 847673855309911950
+      Mine_Tileset_18: 1679602524633966528
+      Mine_Tileset_24: 6704358011861373749
+      Mine_Tileset_4: 1198910900856472800
+      Mine_Tileset_35: 1982893572176785539
+      Mine_Tileset_44: -5428163202911187196
+      Mine_Tileset_47: -8063983354425015006
+      Mine_Tileset_40: 928360415507757975
+      Mine_Tileset_5: 4820780139175384082
+      Mine_Tileset_8: 4290638039631672836
+      Mine_Tileset_0: -6982071203180380638
+      Mine_Tileset_34: 4390696614115563477
+      Mine_Tileset_36: -2519138737809034360
+      Mine_Tileset_16: -754093524474504166
+      Mine_Tileset_46: -3689331400692732657
+      Mine_Tileset_10: 2837478466771212807
+      Mine_Tileset_22: -7709796770351539557
+      Mine_Tileset_38: 1458838382274696786
+      Mine_Tileset_9: -3270820423694464244
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

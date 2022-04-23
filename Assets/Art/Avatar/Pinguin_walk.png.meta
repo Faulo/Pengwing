@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -292,6 +293,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Pinguin_walk_3: 5578879569675132021
+      Pinguin_walk_2: -6528520504211168170
+      Pinguin_walk_1: -9045040097027043987
+      Pinguin_walk_5: -6768498861910921319
+      Pinguin_walk_0: 7078491111241362290
+      Pinguin_walk_4: -406732221741681024
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

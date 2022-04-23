@@ -8,7 +8,7 @@ using Slothsoft.UnityExtensions;
 using Unity.PerformanceTesting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 using UnityEngine.TestTools;
 
 namespace PlayMode {
@@ -76,7 +76,7 @@ namespace PlayMode {
                 spotlightObj.AddComponent<VisionColliderComponent>();
             }
             if ((components & AdditionalComponents.Light) != 0) {
-                spotlightObj.AddComponent<Light2D>();
+                spotlightObj.AddComponent<UnityEngine.Rendering.Universal.Light2D>();
                 spotlightObj.AddComponent<VisionLightComponent>();
             }
         }

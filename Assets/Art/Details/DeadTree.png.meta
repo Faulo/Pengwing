@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -388,6 +389,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      DeadTree_4: 2486580609437022561
+      DeadTree_8: 5085747657881731780
+      DeadTree_9: -6692849173144687466
+      DeadTree_3: -23988443532099599
+      DeadTree_1: -1026097030117784396
+      DeadTree_5: -5558502025194518494
+      DeadTree_6: -3664076660282065250
+      DeadTree_2: 9212328322180366616
+      DeadTree_0: 4347544937462273523
+      DeadTree_7: 8611323447689168602
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

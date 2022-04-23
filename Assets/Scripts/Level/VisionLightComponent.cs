@@ -1,12 +1,12 @@
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 namespace Runtime.Level {
     public class VisionLightComponent : MonoBehaviour {
         [SerializeField, Expandable]
-        Light2D attachedLight = default;
+        UnityEngine.Rendering.Universal.Light2D attachedLight = default;
 
         IVisionComponent vision;
 
