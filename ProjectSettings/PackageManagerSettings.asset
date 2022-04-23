@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EnablePreReleasePackages: 0
-  m_EnablePackageDependencies: 0
+  m_EnablePackageDependencies: 1
   m_AdvancedSettingsExpanded: 1
   m_ScopedRegistriesSettingsExpanded: 1
   m_SeeAllPackageVersions: 0
-  oneTimeWarningShown: 0
+  oneTimeWarningShown: 1
   m_Registries:
   - m_Id: main
     m_Name: 
@@ -25,13 +25,6 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
-  - m_Id: scoped:npmjs
-    m_Name: npmjs
-    m_Url: https://registry.npmjs.org
-    m_Scopes:
-    - com.unity.uiextensions
-    m_IsDefault: 0
-    m_Capabilities: 0
   - m_Id: scoped:OpenUPM
     m_Name: OpenUPM
     m_Url: https://package.openupm.com
@@ -40,22 +33,24 @@ MonoBehaviour:
     - net.slothsoft.unity-extensions
     m_IsDefault: 0
     m_Capabilities: 0
-  m_UserSelectedRegistryName: npmjs
+  m_UserSelectedRegistryName: OpenUPM
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_ErrorMessage: 
     m_Original:
-      m_Id: scoped:npmjs
-      m_Name: npmjs
-      m_Url: https://registry.npmjs.org
+      m_Id: scoped:OpenUPM
+      m_Name: OpenUPM
+      m_Url: https://package.openupm.com
       m_Scopes:
-      - com.unity.uiextensions
+      - com.domybest.mybox
+      - net.slothsoft.unity-extensions
       m_IsDefault: 0
       m_Capabilities: 0
     m_Modified: 0
-    m_Name: npmjs
-    m_Url: https://registry.npmjs.org
+    m_Name: OpenUPM
+    m_Url: https://package.openupm.com
     m_Scopes:
-    - com.unity.uiextensions
+    - com.domybest.mybox
+    - net.slothsoft.unity-extensions
     m_SelectedScopeIndex: 0
   m_LoadAssets: 0

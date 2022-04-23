@@ -12,7 +12,7 @@ namespace Runtime {
             instance = Instantiate(prefab, animator.transform);
         }
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-            if (destroyOnExit && instance) {               
+            if (destroyOnExit && instance) {
                 Destroy(instance);
             }
         }
