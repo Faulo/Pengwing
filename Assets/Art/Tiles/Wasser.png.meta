@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -532,6 +533,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Beton_8: 5562348606463406272
+      Beton_14: 1627369109808195157
+      Beton_4: 1894928417265919209
+      Beton_11: -6595936128040008541
+      Beton_12: -4954977874458340284
+      Beton_3: -5076694928474400086
+      Beton_15: 5950552022098559026
+      Beton_7: -8819548701040661969
+      Beton_9: -311068026241171801
+      Beton_0: 6013603473020225909
+      Beton_1: 3380022736118974401
+      Beton_10: -5269225063255185251
+      Beton_2: -5603935570889906609
+      Beton_6: 1030841842418581977
+      Beton_5: 9084837347121337386
+      Beton_13: -1853568582911922178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
