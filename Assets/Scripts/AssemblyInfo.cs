@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("PlayMode")]
+[assembly: InternalsVisibleTo("Tests.Runtime")]
 namespace Runtime {
     public class AssemblyInfo {
     }

@@ -19,24 +19,24 @@ namespace Runtime.Level {
         Waypoint[] waypoints;
         int currentWaypointIndex;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
             waypoints = GetComponentsInChildren<Waypoint>();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedAnimator) {
                 attachedAnimator = GetComponentInChildren<Animator>();
             }
         }
 
-        void Start() {
+        protected void Start() {
             facingRight = true;
             currentWaypointIndex = 0;
             currentWaitTime = waitTime;
             LookAtWaypoint();
         }
 
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             // Visitor Bewegen
             attachedAnimator.transform.position = Vector2.MoveTowards(attachedAnimator.transform.position, waypoints[currentWaypointIndex].position, speed * Time.deltaTime);
 

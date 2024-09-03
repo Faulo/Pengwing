@@ -12,13 +12,13 @@ namespace Runtime.Level {
 
         Animator anim;
 
-        void Start() {
+        protected void Start() {
             isDown = false;
             currentUpTime = upTime;
             anim = GetComponent<Animator>();
         }
 
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             // If Head is up
             if (!isDown) {
 

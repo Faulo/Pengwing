@@ -7,10 +7,10 @@ namespace Runtime.Player {
         float multiplier = 1;
 
         public override void EnterMovement(AvatarController avatar) {
-            avatar.velocity += Physics2D.gravity * Time.deltaTime * multiplier;
+            avatar.velocity += multiplier * Time.deltaTime * Physics2D.gravity;
         }
         public override void UpdateMovement(AvatarController avatar) {
-            avatar.velocity += Physics2D.gravity * Time.deltaTime * multiplier;
+            avatar.velocity += multiplier * Time.deltaTime * Physics2D.gravity;
         }
     }
 }

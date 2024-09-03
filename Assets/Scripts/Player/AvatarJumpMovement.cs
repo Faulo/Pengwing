@@ -22,6 +22,7 @@ namespace Runtime.Player {
                     avatar.isFacingLeft = Mathf.Sign(avatar.movementInput.x) < 0;
                 }
             }
+
             var targetVelocity = allowInput && avatar.movementInput.magnitude > inputDeadZone
                 ? avatar.movementInput.normalized
                 : new Vector2(defaultVelocity.x * avatar.facingMultiplier, defaultVelocity.y);

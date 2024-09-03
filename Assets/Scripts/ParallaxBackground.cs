@@ -9,7 +9,7 @@ namespace Runtime {
         float textureUnitSizeY;
 
         // Start is called before the first frame update
-        void Start() {
+        protected void Start() {
             cameraTransform = Camera.main.transform;
             lastCameraPosition = cameraTransform.position;
             var sprite = GetComponent<SpriteRenderer>().sprite;
@@ -19,7 +19,7 @@ namespace Runtime {
         }
 
         // Update is called once per frame
-        void LateUpdate() {
+        protected void LateUpdate() {
             var deltaMovement = cameraTransform.position - lastCameraPosition;
             transform.position += new Vector3(deltaMovement.x * parallaxEffectMult.x, deltaMovement.y * parallaxEffectMult.y);
             lastCameraPosition = cameraTransform.position;
@@ -28,6 +28,7 @@ namespace Runtime {
                 float offsetPostitionX = (cameraTransform.position.x - transform.position.x) % textureUnitSizeX;
                 transform.position = new Vector3(cameraTransform.position.x + offsetPostitionX, transform.position.y, transform.position.z);
             }
+
             if (Mathf.Abs(cameraTransform.position.y - transform.position.y) >= textureUnitSizeY) {
                 float offsetPostitionY = (cameraTransform.position.y - transform.position.y) % textureUnitSizeY;
                 transform.position = new Vector3(transform.position.x, cameraTransform.position.y + offsetPostitionY, transform.position.z);

@@ -11,18 +11,19 @@ namespace Runtime.Level {
         Tilemap attachedTilemap;
         [SerializeField]
         MeshCollider attachedCollider;
-        void Awake() {
+        protected void Awake() {
             OnValidate();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedTilemap) {
                 TryGetComponent(out attachedTilemap);
             }
+
             if (!attachedCollider) {
                 attachedCollider = gameObject.GetOrAddComponent<MeshCollider>();
             }
         }
-        void Start() {
+        protected void Start() {
             BakeTilemap();
         }
         void BakeTilemap() {
@@ -63,6 +64,7 @@ namespace Runtime.Level {
                     }
                 }
             }
+
             var mesh = new Mesh {
                 indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
             };

@@ -2,7 +2,6 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-
 namespace Runtime.Level {
     public class VisionLightComponent : MonoBehaviour {
         [SerializeField, Expandable]
@@ -10,20 +9,20 @@ namespace Runtime.Level {
 
         IVisionComponent vision;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedLight) {
                 TryGetComponent(out attachedLight);
             }
         }
-        void OnEnable() {
+        protected void OnEnable() {
             vision = GetComponentInParent<IVisionComponent>();
             Assert.IsNotNull(vision);
             vision.onPathChanged += HandlePathChanged;
         }
-        void OnDisable() {
+        protected void OnDisable() {
             vision.onPathChanged -= HandlePathChanged;
         }
         void HandlePathChanged(Vector2[] path) {

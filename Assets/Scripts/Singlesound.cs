@@ -8,11 +8,10 @@ public class Singlesound : MonoBehaviour {
 
     AudioSource source;
 
-    void Start() {
+    protected void Start() {
         source = GetComponent<AudioSource>();
         source.pitch = Random.Range(pitchMin, pitchMax);
         source.Play();
         Destroy(gameObject, source.clip.length);
     }
-
 }

@@ -9,10 +9,10 @@ namespace Runtime.Player {
 
         AvatarController attachedAvatar;
 
-        void Start() {
+        protected void Start() {
             attachedAvatar = FindObjectOfType<AvatarController>();
         }
-        void Update() {
+        protected void Update() {
             canFlyObject.SetActive(attachedAvatar.canFly);
             cannotFlyObject.SetActive(!attachedAvatar.canFly);
         }

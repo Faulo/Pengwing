@@ -9,16 +9,15 @@ namespace Runtime.Level {
         [SerializeField, Expandable]
         Sprite[] sprites = Array.Empty<Sprite>();
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
             attachedRenderer.sprite = sprites.RandomElement();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedRenderer) {
                 attachedRenderer = GetComponentInChildren<SpriteRenderer>();
             }
         }
     }
 }
-
 

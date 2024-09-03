@@ -9,20 +9,20 @@ namespace Runtime.Level {
 
         IVisionComponent vision;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedCollider) {
                 TryGetComponent(out attachedCollider);
             }
         }
-        void OnEnable() {
+        protected void OnEnable() {
             vision = GetComponentInParent<IVisionComponent>();
             Assert.IsNotNull(vision);
             vision.onPathChanged += HandlePathChanged;
         }
-        void OnDisable() {
+        protected void OnDisable() {
             vision.onPathChanged -= HandlePathChanged;
         }
         void HandlePathChanged(Vector2[] path) {
@@ -33,7 +33,7 @@ namespace Runtime.Level {
         [Header("Debug")]
         [SerializeField]
         bool drawGizmos = false;
-        void OnDrawGizmos() {
+        protected void OnDrawGizmos() {
             if (drawGizmos) {
                 Gizmos.color = Color.cyan;
                 foreach (var point in attachedCollider.GetPath(0)) {

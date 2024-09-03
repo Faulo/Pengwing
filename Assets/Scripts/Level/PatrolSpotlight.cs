@@ -40,7 +40,6 @@ namespace Runtime.Level {
         [SerializeField]
         internal UpdateMethod updateMethod = UpdateMethod.FixedUpdate;
 
-
         IVisionCone cone;
         Vector2[] path = Array.Empty<Vector2>();
 
@@ -60,38 +59,42 @@ namespace Runtime.Level {
                 CreateCone();
                 hasChanged = true;
             }
+
             if (path.Length != cone.vertexCount) {
                 path = new Vector2[cone.vertexCount];
                 hasChanged = true;
             }
+
             int i = 0;
             foreach (var point in cone.GetVertices()) {
                 if (path[i] != point) {
                     path[i] = point;
                     hasChanged = true;
                 }
+
                 i++;
             }
+
             if (hasChanged) {
                 onPathChanged?.Invoke(path);
             }
         }
-        void Update() {
+        protected void Update() {
             if (updateMethod == UpdateMethod.Update) {
                 UpdateCone();
             }
         }
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             if (updateMethod == UpdateMethod.FixedUpdate) {
                 UpdateCone();
             }
         }
-        void LateUpdate() {
+        protected void LateUpdate() {
             if (updateMethod == UpdateMethod.LateUpdate) {
                 UpdateCone();
             }
         }
-        void OnDrawGizmos() {
+        protected void OnDrawGizmos() {
             var startOffset = transform.rotation * Quaternion.Euler(0, 0, -startAngle) * new Vector3(distance, 0, 0);
             var stopOffset = transform.rotation * Quaternion.Euler(0, 0, -stopAngle) * new Vector3(distance, 0, 0);
             Gizmos.color = Color.cyan;

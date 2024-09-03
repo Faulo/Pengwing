@@ -10,20 +10,20 @@ namespace Runtime.Player {
 
         InputActionAsset avatarActionInstance;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedAvatar) {
                 TryGetComponent(out attachedAvatar);
             }
         }
-        void OnEnable() {
+        protected void OnEnable() {
             avatarActionInstance = Instantiate(avatarActionAsset);
             avatarActionInstance.FindActionMap("Avatar").actionTriggered += HandleAction;
             avatarActionInstance.Enable();
         }
-        void OnDisable() {
+        protected void OnDisable() {
             Destroy(avatarActionInstance);
         }
         void HandleAction(InputAction.CallbackContext context) {
@@ -35,6 +35,7 @@ namespace Runtime.Player {
                     if (context.started) {
                         attachedAvatar.Jump();
                     }
+
                     break;
             }
         }

@@ -35,7 +35,7 @@ namespace Runtime.Level {
             Bottom = 1 << 2,
             Left = 1 << 3
         }
-        static readonly Dictionary<SpritePosition, SpriteId> idOverPosition = new Dictionary<SpritePosition, SpriteId> {
+        static readonly Dictionary<SpritePosition, SpriteId> idOverPosition = new() {
             [0] = SpriteId.Single,
             [SpritePosition.Bottom | SpritePosition.Right] = SpriteId.TopLeft,
             [SpritePosition.Bottom | SpritePosition.Left] = SpriteId.TopRight,
@@ -88,6 +88,7 @@ namespace Runtime.Level {
                     mask |= add;
                 }
             }
+
             return mask;
         }
         Sprite LookupSprite(SpriteId spriteId) {
@@ -98,7 +99,7 @@ namespace Runtime.Level {
         [Header("Editor Tools")]
         [SerializeField, Expandable]
         Texture2D spriteSheet = default;
-        void OnValidate() {
+        protected void OnValidate() {
             if (spriteSheet) {
                 sprites = UnityEditor.AssetDatabase
                     .LoadAllAssetsAtPath(UnityEditor.AssetDatabase.GetAssetPath(spriteSheet))

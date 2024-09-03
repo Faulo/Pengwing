@@ -37,6 +37,7 @@ namespace Runtime.Level {
                 tilemap = new GameObject(name).AddComponent<Tilemap>();
                 tilemap.transform.parent = transform;
             }
+
             tilemap.gameObject.isStatic = true;
             tilemap.gameObject.layer = layer;
             var renderer = tilemap.gameObject.GetOrAddComponent<TilemapRenderer>();
@@ -64,6 +65,7 @@ namespace Runtime.Level {
                 default:
                     break;
             }
+
             UnityEditor.EditorUtility.SetDirty(tilemap);
         }
 #endif

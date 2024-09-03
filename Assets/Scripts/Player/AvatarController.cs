@@ -63,23 +63,25 @@ namespace Runtime.Player {
 
         float jumpTimer;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
             isAlive = true;
             instance = this;
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedCharacter) {
                 TryGetComponent(out attachedCharacter);
             }
+
             if (!attachedAnimator) {
                 TryGetComponent(out attachedAnimator);
             }
+
             if (!attachedRenderer) {
                 TryGetComponent(out attachedRenderer);
             }
         }
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             UpdateJump();
             isInWater = Physics2D.OverlapCircle(transform.position + waterOffset, waterRadius, waterLayer);
             isInSwamp = transform.position.y < outOfBoundsY || Physics2D.OverlapCircle(transform.position + swampOffset, swampRadius, swampLayer);
@@ -87,11 +89,13 @@ namespace Runtime.Player {
             if (isInSwamp) {
                 isAlive = false;
             }
+
             var goal = Physics2D.OverlapCircle(transform.position, attachedCharacter.radius, goalLayer);
             if (goal && goal.TryGetComponent<GoalController>(out var g) && !isWin) {
                 isWin = true;
                 g.Win();
             }
+
             canFly = isAlive && !isSeen;
 
             attachedAnimator.SetBool(nameof(Parameters.isInWater), isInWater);
@@ -116,13 +120,13 @@ namespace Runtime.Player {
                 velocity.y = 0;
             }
         }
-        void OnControllerColliderHit(ControllerColliderHit hit) {
+        protected void OnControllerColliderHit(ControllerColliderHit hit) {
         }
-        void OnTriggerEnter(Collider other) {
+        protected void OnTriggerEnter(Collider other) {
         }
-        void OnTriggerStay(Collider other) {
+        protected void OnTriggerStay(Collider other) {
         }
-        void OnTriggerExit(Collider other) {
+        protected void OnTriggerExit(Collider other) {
         }
         void UpdateJump() {
             if (jumpTimer > 0) {

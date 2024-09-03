@@ -16,16 +16,19 @@ namespace Runtime.Level {
 
         GameObject crocInstance;
 
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             if (crocInstance) {
                 return;
             }
+
             if (!AvatarController.instance || !AvatarController.instance.isAlive) {
                 return;
             }
+
             if (Physics.CheckSphere(transform.position, swampRadius, solidLayer, QueryTriggerInteraction.Collide)) {
                 return;
             }
+
             if (Physics2D.OverlapCircle(transform.position, swampRadius, swampLayer)) {
                 crocInstance = Instantiate(crocPrefab, transform.position, Quaternion.identity);
                 Destroy(crocInstance, crocDuration);

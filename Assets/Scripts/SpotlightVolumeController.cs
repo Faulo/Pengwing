@@ -21,18 +21,19 @@ namespace Runtime {
 
         float timer;
 
-        void Awake() {
+        protected void Awake() {
             OnValidate();
         }
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedVolume) {
                 TryGetComponent(out attachedVolume);
             }
         }
-        void Update() {
+        protected void Update() {
             if (!AvatarController.instance) {
                 return;
             }
+
             bool increase = mode switch {
                 ObservationMode.IsSeen => AvatarController.instance.isSeen,
                 ObservationMode.IsDead => !AvatarController.instance.isAlive,
@@ -43,6 +44,7 @@ namespace Runtime {
             } else {
                 timer -= Time.deltaTime / maximumDuration;
             }
+
             timer = Mathf.Clamp01(timer);
             attachedVolume.weight = maximumWeight * timer;
         }

@@ -15,7 +15,7 @@ namespace Runtime.Level.VisionCones {
 
         Vector3 lastCheckedPosition;
         Quaternion lastCheckedRotation;
-        readonly List<Vector2> vertices = new List<Vector2>();
+        readonly List<Vector2> vertices = new();
         public int vertexCount {
             get {
                 UpdateVertices();
@@ -46,6 +46,7 @@ namespace Runtime.Level.VisionCones {
                 lastCheckedRotation = origin.rotation;
                 return true;
             }
+
             return false;
         }
         void UpdateVertices() {
@@ -64,6 +65,7 @@ namespace Runtime.Level.VisionCones {
                         }
                     }
                 }
+
                 vertices.Clear();
                 vertices.Add(Vector2.zero);
                 foreach ((_, var vertex) in potentialVertices) {

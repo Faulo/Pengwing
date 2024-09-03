@@ -75,6 +75,7 @@ namespace PlayMode {
                 spotlightObj.AddComponent<PolygonCollider2D>();
                 spotlightObj.AddComponent<VisionColliderComponent>();
             }
+
             if ((components & AdditionalComponents.Light) != 0) {
                 spotlightObj.AddComponent<UnityEngine.Rendering.Universal.Light2D>();
                 spotlightObj.AddComponent<VisionLightComponent>();

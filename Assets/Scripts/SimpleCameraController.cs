@@ -47,8 +47,8 @@ namespace UnityTemplateProjects {
             }
         }
 
-        CameraState m_TargetCameraState = new CameraState();
-        CameraState m_InterpolatingCameraState = new CameraState();
+        CameraState m_TargetCameraState = new();
+        CameraState m_InterpolatingCameraState = new();
 
         [Header("Movement Settings")]
         [Tooltip("Exponential boost factor on translation, controllable by mouse wheel.")]
@@ -59,7 +59,7 @@ namespace UnityTemplateProjects {
 
         [Header("Rotation Settings")]
         [Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
-        public AnimationCurve mouseSensitivityCurve = new AnimationCurve(new Keyframe(0f, 0.5f, 0f, 5f), new Keyframe(1f, 2.5f, 0f, 0f));
+        public AnimationCurve mouseSensitivityCurve = new(new Keyframe(0f, 0.5f, 0f, 5f), new Keyframe(1f, 2.5f, 0f, 0f));
 
         [Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target."), Range(0.001f, 1f)]
         public float rotationLerpTime = 0.01f;
@@ -74,7 +74,7 @@ namespace UnityTemplateProjects {
         InputAction boostFactorAction;
         bool mouseRightButtonPressed;
 
-        void Start() {
+        protected void Start() {
             var map = new InputActionMap("Simple Camera Controller");
 
             lookAction = map.AddAction("look", binding: "<Mouse>/delta");
@@ -108,7 +108,7 @@ namespace UnityTemplateProjects {
         }
 #endif
 
-        void OnEnable() {
+        protected void OnEnable() {
             m_TargetCameraState.SetFromTransform(transform);
             m_InterpolatingCameraState.SetFromTransform(transform);
         }
@@ -149,7 +149,7 @@ namespace UnityTemplateProjects {
             return direction;
         }
 
-        void Update() {
+        protected void Update() {
             // Exit Sample  
 
             if (IsEscapePressed()) {
@@ -172,7 +172,7 @@ namespace UnityTemplateProjects {
 
             // Rotation
             if (IsCameraRotationAllowed()) {
-                var mouseMovement = GetInputLookRotation() * Time.deltaTime * 5;
+                var mouseMovement = 5 * Time.deltaTime * GetInputLookRotation();
                 if (invertY) {
                     mouseMovement.y = -mouseMovement.y;
                 }
@@ -199,8 +199,8 @@ namespace UnityTemplateProjects {
 
             // Framerate-independent interpolation
             // Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
-            float positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-            float rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
+            float positionLerpPct = 1f - Mathf.Exp(Mathf.Log(1f - 0.99f) / positionLerpTime * Time.deltaTime);
+            float rotationLerpPct = 1f - Mathf.Exp(Mathf.Log(1f - 0.99f) / rotationLerpTime * Time.deltaTime);
             m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
 
             m_InterpolatingCameraState.UpdateTransform(transform);
@@ -224,8 +224,8 @@ namespace UnityTemplateProjects {
 
         bool IsBoostPressed() {
 #if ENABLE_INPUT_SYSTEM
-            bool boost = Keyboard.current != null ? Keyboard.current.leftShiftKey.isPressed : false;
-            boost |= Gamepad.current != null ? Gamepad.current.xButton.isPressed : false;
+            bool boost = Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed;
+            boost |= Gamepad.current != null && Gamepad.current.xButton.isPressed;
             return boost;
 #else
             return Input.GetKey(KeyCode.LeftShift);
@@ -235,7 +235,7 @@ namespace UnityTemplateProjects {
 
         bool IsEscapePressed() {
 #if ENABLE_INPUT_SYSTEM
-            return Keyboard.current != null ? Keyboard.current.escapeKey.isPressed : false;
+            return Keyboard.current != null && Keyboard.current.escapeKey.isPressed;
 #else
             return Input.GetKey(KeyCode.Escape);
 #endif
@@ -243,8 +243,8 @@ namespace UnityTemplateProjects {
 
         bool IsCameraRotationAllowed() {
 #if ENABLE_INPUT_SYSTEM
-            bool canRotate = Mouse.current != null ? Mouse.current.rightButton.isPressed : false;
-            canRotate |= Gamepad.current != null ? Gamepad.current.rightStick.ReadValue().magnitude > 0 : false;
+            bool canRotate = Mouse.current != null && Mouse.current.rightButton.isPressed;
+            canRotate |= Gamepad.current != null && Gamepad.current.rightStick.ReadValue().magnitude > 0;
             return canRotate;
 #else
             return Input.GetMouseButton(1);
@@ -253,7 +253,7 @@ namespace UnityTemplateProjects {
 
         bool IsRightMouseButtonDown() {
 #if ENABLE_INPUT_SYSTEM
-            return Mouse.current != null ? Mouse.current.rightButton.isPressed : false;
+            return Mouse.current != null && Mouse.current.rightButton.isPressed;
 #else
             return Input.GetMouseButtonDown(1);
 #endif
@@ -261,12 +261,10 @@ namespace UnityTemplateProjects {
 
         bool IsRightMouseButtonUp() {
 #if ENABLE_INPUT_SYSTEM
-            return Mouse.current != null ? !Mouse.current.rightButton.isPressed : false;
+            return Mouse.current != null && !Mouse.current.rightButton.isPressed;
 #else
             return Input.GetMouseButtonUp(1);
 #endif
         }
-
     }
-
 }
